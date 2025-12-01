@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/style.css">
+  <title>DUPE</title>
+</head>
+<body>
+  {% if erro %}
+  <script>
+      alert("{{ erro }}");
+  </script>
+  {% endif %}
+  <div class="container">
+
+    <div class="box" onclick="window.location.href='/cad_duplicata'">
+      <h3>Cadastro de Duplicata</h3>
+    </div>
+
+    <div class="box" onclick="window.location.href='/buscar_duplicatas'">
+      <h3>Busca de Duplicata</h3>
+    </div>
+
+    <div class="box" onclick="openModal('modalBuscarID')">
+      <h3>Atualização de Status</h3>
+    </div>
+  
+    <div class="modal-overlay" id="modalBuscarID">
+      <div class="modal-box">
+          <span class="close-btn" onclick="closeModal('modalBuscarID')">✖</span>
+  
+          <h2>Informe o ID da duplicata</h2>
+  
+          <form method="GET" action="/duplicatas/buscar_id">
+              <label>ID:</label>
+              <input type="number" name="id" required>
+              <button type="submit">Continuar</button>
+          </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../static/script.js"></script>
+</body>
+</html>
